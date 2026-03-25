@@ -1,5 +1,5 @@
-const create = getElementId("pet")
-const button = getElementId("btn_burguer")
+const create = getElementById("pet");
+const button = getElementById("btn_burguer");
 
 const state = {
     normal: "/img/fofinho_gem-removebg-preview.png",    
