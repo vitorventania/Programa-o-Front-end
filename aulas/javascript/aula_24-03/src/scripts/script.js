@@ -1,34 +1,34 @@
-const create = getElementById("pet");
-const button = getElementById("btn_burguer");
+const create = document.getElementById('pet');
+const button = document.getElementById('btn_burguer');
 
 const state = {
-    normal: "/img/fofinho_gem-removebg-preview.png",    
-    morto: "/img/morto-removebg-preview.png",
-    bravo: "/img/bravo_gem-removebg-preview.png",
-    comendo: "/img/comendo-removebg-preview.png",
-    feliz: "/img/amavel_gem-removebg-preview.png",
-}
+    normal: "src/img/fofinho_gem-removebg-preview.png",    
+    morto: "src/img/morto-removebg-preview.png",
+    bravo: "src/img/bravo_gem-removebg-preview.png",
+    comendo: "src/img/comendo-removebg-preview.png",
+    feliz: "src/img/amavel_gem-removebg-preview.png"
+};
 
-let contador = 0;
-let itervalo = null;
+let count = 0;
+let intervall = null;
 let time_click = null;
 let time_out = null;
 
-function controlador(){
-    if(intervalo) clearInterval();
+function controller(){
+    if(intervall) clearInterval();
 
-    intervalo = setInterval(() => {
-        contador++;
-        console.log("time: ",conador);
+    intervall = setInterval(() => {
+        count++;
+        console.log("time: ",count);
 
-        if(contador >= 30){
+        if(count >= 30){
             create.src = state.bravo;
         }
 
-        if(contador >= 60){
-            create.src = state.morto
+        if(count >= 60){
+            create.src = state.morto;
         }
     }, 100);
 }
 
-controlador()
+controller();
