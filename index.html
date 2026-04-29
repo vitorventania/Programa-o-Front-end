@@ -1,66 +1,195 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HUB | DELIVERY WORKS</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Courier New', Courier, monospace;
-            background-color: #172116;
-            color: #fff;
-        }
-
-        .container{
-            display: flex;
-            flex-direction: column;
-            margin: 40px 80px;
-            padding: 80px 40px;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .container h1{
-            font-size: 40px;
-            margin: 5px;
-        }
-
-        .container ul li{
-            display: flex;
-            list-style: none;
-        }
-
-        .link {
-            text-decoration: none;
-            color: #83c480;
-            font-family: sans-serif;
-            margin-bottom: 10px;
-            padding: 10px;
-            border:2px solid #fff;
-            border-radius: 40px;
-            transition: all 0.3 ease-in-out;
-        }
-
-        .link:hover {
-            background-color: #fff;
-            color: #172116;
-            font-weight: bold;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HUB | Programação Front-end</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./src/styles/styles.css">
 </head>
+
 <body>
-    <div class="container">
-        <h1>DIRECT LINKS 📶</h1>
-        <ul>
-            <li ><a href="./entregas/entrega_1/page1.html" class="link">DELIVERY 1</a></li>
-            <li><a href="./entregas/entrega_2/page_2.html" class="link">DELIVERY 2</a></li>
-            <li><a href="./entregas/entrega_3/page_3.html" class="link">DELIVERY 3</a></li>
-            <li><a href="./entregas/entrega_4/page_4.html" class="link">DELIVERY 4</a></li>
-            <li><a href="./entregas/entrega_5/page_5.html" class="link">DELIVERY 5</a></li>
-        </ul>
+
+  <header>
+    <div class="header-left">
+      <span class="header-tag">// entregas &amp; atividades</span>
+      <h1>HUB <span>|</span> Programação<br>Front-end</h1>
     </div>
+    <div class="header-meta">
+      <p>Delivery Works</p>
+      <p style="margin-top:4px">ESOFT-3S</p>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- 1º BIMESTRE -->
+    <section class="bimestre">
+      <div class="bimestre-header">
+        <span class="bimestre-label">01</span>
+        <h2 class="bimestre-title">1º Bimestre</h2>
+        <div class="bimestre-line"></div>
+      </div>
+
+      <div class="cards-grid">
+
+        <div class="card">
+          <div class="card-top">
+            <div class="card-icon">🧱</div>
+            <span class="card-status">entregue</span>
+          </div>
+          <div class="card-title">HTML</div>
+          <p class="card-desc">Fundamentos de marcação: estrutura semântica, tags, atributos e criação de páginas
+            básicas.</p>
+          <a href="./entregas/HTML/app.html" class="card-btn">
+            Ver entrega
+            <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <div class="card-icon">🎨</div>
+            <span class="card-status">entregue</span>
+          </div>
+          <div class="card-title">CSS 1</div>
+          <p class="card-desc">Introdução ao CSS: seletores, cores, tipografia, modelo de caixa e estilização básica.
+          </p>
+          <a href="./entregas/CSS-1/app.html" class="card-btn">
+            Ver entrega
+            <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <div class="card-icon">✨</div>
+            <span class="card-status">entregue</span>
+          </div>
+          <div class="card-title">CSS 2</div>
+          <p class="card-desc">Layouts avançados com Flexbox, Grid, responsividade e animações CSS.</p>
+          <a href="./entregas/CSS-2/app.html" class="card-btn">
+            Ver entrega
+            <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <div class="card-icon">🌼</div>
+            <span class="card-status">entregue</span>
+          </div>
+          <div class="card-title">Daisy UI</div>
+          <p class="card-desc">Componentes prontos com DaisyUI sobre Tailwind: botões, cards, modais e temas.</p>
+          <a href="./entregas/DaisyUI/app.html" class="card-btn">
+            Ver entrega
+            <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <div class="card-icon">🅱️</div>
+            <span class="card-status">entregue</span>
+          </div>
+          <div class="card-title">Bootstrap</div>
+          <p class="card-desc">Sistema de grid do Bootstrap, utilitários e componentes para prototipação rápida.</p>
+          <a href="./entregas/Bootstrap/app.html" class="card-btn">
+            Ver entrega
+            <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <div class="card-icon">⚡</div>
+            <span class="card-status">entregue</span>
+          </div>
+          <div class="card-title">JavaScript</div>
+          <p class="card-desc">Lógica de programação com JS: variáveis, funções, DOM, eventos e manipulação de dados.
+          </p>
+          <a href="./entregas/Javascript/app.html" class="card-btn">
+            Ver entrega
+            <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <div class="card-icon">📝</div>
+            <span class="card-status">entregue</span>
+          </div>
+          <div class="card-title">Prova</div>
+          <p class="card-desc">Avaliação do 1º Bimestre integrando HTML, CSS e JavaScript em um projeto prático.</p>
+          <a href="./entregas/Prova/Prova.html" class="card-btn">
+            Ver entrega
+            <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 2º BIMESTRE (exemplo em branco para expandir) -->
+    <section class="bimestre">
+      <div class="bimestre-header">
+        <span class="bimestre-label">02</span>
+        <h2 class="bimestre-title">2º Bimestre</h2>
+        <div class="bimestre-line"></div>
+      </div>
+
+      <div class="cards-grid">
+
+        <div class="card" style="opacity:0.55">
+          <div class="card-top">
+            <div class="card-icon">🔒</div>
+            <span class="card-status locked">em breve</span>
+          </div>
+          <div class="card-title">Entrega 01</div>
+          <p class="card-desc">Esta entrega ainda não foi adicionada. Atualize o hub quando estiver disponível.</p>
+          <span class="card-btn locked">
+            Em breve
+            <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </span>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>HUB · Programação Front-end · Delivery Works</p>
+    <div class="footer-dot"></div>
+  </footer>
+
 </body>
+
 </html>
