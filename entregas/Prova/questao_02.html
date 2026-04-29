@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copa do Mundo 2026 – Grupos</title>
+    <style>
+        :root {
+            --bg: #f0f4f8;
+            --header-bg: #1a2e4a;
+            --card-bg: #ffffff;
+            --accent: #1d6fa4;
+            --accent-light: #d0e8f7;
+            --text: #222;
+            --text-muted: #555;
+            --border-radius: 12px;
+            --shadow: 0 4px 16px rgba(0,0,0,0.10);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 24px 16px;
+        }
+
+        /* Cabeçalho centralizado */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-color: var(--header-bg);
+            color: #ffffff;
+            border-radius: var(--border-radius);
+            padding: 32px 24px;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            margin-top: 6px;
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        /* Cartões de grupo – destaque da página */
+        .grupo-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 24px 28px;
+            flex: 1 1 240px;
+            max-width: 280px;
+            border-top: 5px solid var(--accent);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .grupo-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+
+        .grupo-card h2 {
+            font-size: 1.2rem;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .grupo-card h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        .grupo-card ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 12px;
+        }
+
+        .grupo-card ul li {
+            padding: 4px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 0.95rem;
+        }
+
+        .grupo-card ul li:last-child {
+            border-bottom: none;
+        }
+
+        details {
+            margin-top: 12px;
+            background-color: var(--accent-light);
+            border-radius: 8px;
+            padding: 8px 12px;
+        }
+
+        details summary {
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+
+        details p {
+            margin-top: 8px;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 48px;
+            font-size: 0.8rem;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>⚽ Copa do Mundo 2026</h1>
+        <p>Fase de Grupos | Edição Especial</p>
+    </header>
+
+    <main>
+
+        <div id="grupo-a" class="grupo-card">
+            <h2>🅰️ Grupo A</h2>
+            <h3>Seleções</h3>
+            <ul>
+                <li>México</li>
+                <li>África do Sul</li>
+                <li>Coreia do Sul</li>
+                <li>República Tcheca</li>
+            </ul>
+            <details>
+                <summary>Saiba Mais</summary>
+                <p>O jogo de abertura será México x África do Sul. Confrontos entre Coreia do Sul e seleções europeias já ocorreram em várias Copas, com histórico equilibrado.</p>
+            </details>
+        </div>
+
+        <div id="grupo-b" class="grupo-card">
+            <h2>🅱️ Grupo B</h2>
+            <h3>Seleções</h3>
+            <ul>
+                <li>Canadá</li>
+                <li>Suíça</li>
+                <li>Catar</li>
+                <li>Vaga Europeia (Bósnia)</li>
+            </ul>
+            <details>
+                <summary>Saiba Mais</summary>
+                <p>O Canadá joga em casa, fator importante de desempenho. Catar e Suíça já se enfrentaram recentemente em amistosos internacionais.</p>
+            </details>
+        </div>
+
+        <div id="grupo-c" class="grupo-card">
+            <h2>🅲 Grupo C</h2>
+            <h3>Seleções</h3>
+            <ul>
+                <li>Brasil</li>
+                <li>Marrocos</li>
+                <li>Haiti</li>
+                <li>Escócia</li>
+            </ul>
+            <details>
+                <summary>Saiba Mais</summary>
+                <p>Brasil, Marrocos e Escócia já dividiram grupo em 1998. Brasil nunca perdeu para a Escócia em Copas.</p>
+            </details>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>© 2026 – Copa do Mundo | Avaliação FrontEnd</p>
+    </footer>
+
+</body>
+</html>
