@@ -5,9 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HUB | Programação Front-end</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./src/styles/styles.css">
 </head>
 
@@ -16,7 +14,7 @@
   <header>
     <div class="header-left">
       <span class="header-tag">// entregas &amp; atividades</span>
-      <h1>HUB <span>|</span> Programação<br>Front-end</h1>
+      <h1>HUB <span>|</span> Programação · Front-end</h1>
     </div>
     <div class="header-meta">
       <p>Delivery Works</p>
@@ -26,7 +24,6 @@
 
   <main>
 
-    <!-- 1º BIMESTRE -->
     <section class="bimestre">
       <div class="bimestre-header">
         <span class="bimestre-label">01</span>
@@ -34,127 +31,137 @@
         <div class="bimestre-line"></div>
       </div>
 
-      <div class="cards-grid">
+      <ol class="lista-entregas">
 
-        <div class="card">
-          <div class="card-top">
-            <div class="card-icon">🧱</div>
-            <span class="card-status">entregue</span>
-          </div>
-          <div class="card-title">HTML</div>
-          <p class="card-desc">Fundamentos de marcação: estrutura semântica, tags, atributos e criação de páginas
-            básicas.</p>
-          <a href="./entregas/HTML/app.html" class="card-btn">
-            Ver entrega
-            <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                stroke-linejoin="round" />
+        <li>
+          <a href="./entregas/HTML/app.html" class="item-entrega">
+            <div class="item-conteudo">
+              <div class="item-icone">🧱</div>
+              <div class="item-info">
+                <div class="item-cabecalho">
+                  <h3 class="item-titulo">HTML</h3>
+                  <span class="item-status">entregue</span>
+                </div>
+                <p class="item-desc">Fundamentos de marcação: estrutura semântica, tags, atributos e criação de páginas básicas.</p>
+              </div>
+            </div>
+            <svg class="item-seta" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </a>
-        </div>
+        </li>
 
-        <div class="card">
-          <div class="card-top">
-            <div class="card-icon">🎨</div>
-            <span class="card-status">entregue</span>
-          </div>
-          <div class="card-title">CSS 1</div>
-          <p class="card-desc">Introdução ao CSS: seletores, cores, tipografia, modelo de caixa e estilização básica.
-          </p>
-          <a href="./entregas/CSS-1/app.html" class="card-btn">
-            Ver entrega
-            <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                stroke-linejoin="round" />
+        <li>
+          <a href="./entregas/CSS-1/app.html" class="item-entrega">
+            <div class="item-conteudo">
+              <div class="item-icone">🎨</div>
+              <div class="item-info">
+                <div class="item-cabecalho">
+                  <h3 class="item-titulo">CSS 1</h3>
+                  <span class="item-status">entregue</span>
+                </div>
+                <p class="item-desc">Introdução ao CSS: seletores, cores, tipografia, modelo de caixa e estilização básica.</p>
+              </div>
+            </div>
+            <svg class="item-seta" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </a>
-        </div>
+        </li>
 
-        <div class="card">
-          <div class="card-top">
-            <div class="card-icon">✨</div>
-            <span class="card-status">entregue</span>
-          </div>
-          <div class="card-title">CSS 2</div>
-          <p class="card-desc">Layouts avançados com Flexbox, Grid, responsividade e animações CSS.</p>
-          <a href="./entregas/CSS-2/app.html" class="card-btn">
-            Ver entrega
-            <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                stroke-linejoin="round" />
+        <li>
+          <a href="./entregas/CSS-2/app.html" class="item-entrega">
+            <div class="item-conteudo">
+              <div class="item-icone">✨</div>
+              <div class="item-info">
+                <div class="item-cabecalho">
+                  <h3 class="item-titulo">CSS 2</h3>
+                  <span class="item-status">entregue</span>
+                </div>
+                <p class="item-desc">Layouts avançados com Flexbox, Grid, responsividade e animações CSS.</p>
+              </div>
+            </div>
+            <svg class="item-seta" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </a>
-        </div>
+        </li>
 
-        <div class="card">
-          <div class="card-top">
-            <div class="card-icon">🌼</div>
-            <span class="card-status">entregue</span>
-          </div>
-          <div class="card-title">Daisy UI</div>
-          <p class="card-desc">Componentes prontos com DaisyUI sobre Tailwind: botões, cards, modais e temas.</p>
-          <a href="./entregas/DaisyUI/app.html" class="card-btn">
-            Ver entrega
-            <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                stroke-linejoin="round" />
+        <li>
+          <a href="./entregas/DaisyUI/app.html" class="item-entrega">
+            <div class="item-conteudo">
+              <div class="item-icone">🌼</div>
+              <div class="item-info">
+                <div class="item-cabecalho">
+                  <h3 class="item-titulo">Daisy UI</h3>
+                  <span class="item-status">entregue</span>
+                </div>
+                <p class="item-desc">Componentes prontos com DaisyUI sobre Tailwind: botões, cards, modais e temas.</p>
+              </div>
+            </div>
+            <svg class="item-seta" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </a>
-        </div>
+        </li>
 
-        <div class="card">
-          <div class="card-top">
-            <div class="card-icon">🅱️</div>
-            <span class="card-status">entregue</span>
-          </div>
-          <div class="card-title">Bootstrap</div>
-          <p class="card-desc">Sistema de grid do Bootstrap, utilitários e componentes para prototipação rápida.</p>
-          <a href="./entregas/Bootstrap/app.html" class="card-btn">
-            Ver entrega
-            <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                stroke-linejoin="round" />
+        <li>
+          <a href="./entregas/Bootstrap/app.html" class="item-entrega">
+            <div class="item-conteudo">
+              <div class="item-icone">🅱️</div>
+              <div class="item-info">
+                <div class="item-cabecalho">
+                  <h3 class="item-titulo">Bootstrap</h3>
+                  <span class="item-status">entregue</span>
+                </div>
+                <p class="item-desc">Sistema de grid do Bootstrap, utilitários e componentes para prototipação rápida.</p>
+              </div>
+            </div>
+            <svg class="item-seta" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </a>
-        </div>
+        </li>
 
-        <div class="card">
-          <div class="card-top">
-            <div class="card-icon">⚡</div>
-            <span class="card-status">entregue</span>
-          </div>
-          <div class="card-title">JavaScript</div>
-          <p class="card-desc">Lógica de programação com JS: variáveis, funções, DOM, eventos e manipulação de dados.
-          </p>
-          <a href="./entregas/Javascript/app.html" class="card-btn">
-            Ver entrega
-            <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                stroke-linejoin="round" />
+        <li>
+          <a href="./entregas/Javascript/app.html" class="item-entrega">
+            <div class="item-conteudo">
+              <div class="item-icone">⚡</div>
+              <div class="item-info">
+                <div class="item-cabecalho">
+                  <h3 class="item-titulo">JavaScript</h3>
+                  <span class="item-status">entregue</span>
+                </div>
+                <p class="item-desc">Lógica de programação com JS: variáveis, funções, DOM, eventos e manipulação de dados.</p>
+              </div>
+            </div>
+            <svg class="item-seta" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </a>
-        </div>
+        </li>
 
-        <div class="card">
-          <div class="card-top">
-            <div class="card-icon">📝</div>
-            <span class="card-status">entregue</span>
-          </div>
-          <div class="card-title">Prova</div>
-          <p class="card-desc">Avaliação do 1º Bimestre integrando HTML, CSS e JavaScript em um projeto prático.</p>
-          <a href="./entregas/Prova/Prova.html" class="card-btn">
-            Ver entrega
-            <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                stroke-linejoin="round" />
+        <li>
+          <a href="./entregas/Prova/app.html" class="item-entrega">
+            <div class="item-conteudo">
+              <div class="item-icone">📝</div>
+              <div class="item-info">
+                <div class="item-cabecalho">
+                  <h3 class="item-titulo">Prova</h3>
+                  <span class="item-status">entregue</span>
+                </div>
+                <p class="item-desc">Avaliação do 1º Bimestre integrando HTML, CSS e JavaScript em um projeto prático.</p>
+              </div>
+            </div>
+            <svg class="item-seta" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </a>
-        </div>
+        </li>
 
-      </div>
+      </ol>
     </section>
 
-    <!-- 2º BIMESTRE (exemplo em branco para expandir) -->
     <section class="bimestre">
       <div class="bimestre-header">
         <span class="bimestre-label">02</span>
@@ -162,25 +169,25 @@
         <div class="bimestre-line"></div>
       </div>
 
-      <div class="cards-grid">
+      <ol class="lista-entregas">
 
-        <div class="card" style="opacity:0.55">
-          <div class="card-top">
-            <div class="card-icon">🔒</div>
-            <span class="card-status locked">em breve</span>
+        <li>
+          <div class="item-entrega locked">
+            <div class="item-conteudo">
+              <div class="item-icone">🔒</div>
+              <div class="item-info">
+                <div class="item-cabecalho">
+                  <h3 class="item-titulo">Entrega 01</h3>
+                  <span class="item-status locked-badge">em breve</span>
+                </div>
+                <p class="item-desc">Esta entrega ainda não foi adicionada. Atualize o hub quando estiver disponível.</p>
+              </div>
+            </div>
+            <span class="locked-text">Em breve</span>
           </div>
-          <div class="card-title">Entrega 01</div>
-          <p class="card-desc">Esta entrega ainda não foi adicionada. Atualize o hub quando estiver disponível.</p>
-          <span class="card-btn locked">
-            Em breve
-            <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                stroke-linejoin="round" />
-            </svg>
-          </span>
-        </div>
+        </li>
 
-      </div>
+      </ol>
     </section>
 
   </main>
