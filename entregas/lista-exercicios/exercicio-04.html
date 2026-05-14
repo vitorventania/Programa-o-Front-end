@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercicio 04 - Taxas Infinity Bank</title>
+    <style>
+        :root {
+            --bg: #0f1115;
+            --panel: #171a21;
+            --text: #e6e6e6;
+            --muted: #a6adbb;
+            --accent: #ff8a65;
+            --border: #232734;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: radial-gradient(1000px 520px at 80% -10%, #232634, #0f1115);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 24px;
+        }
+
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
+        }
+
+        h1 {
+            margin: 0 0 8px 0;
+            color: var(--accent);
+        }
+
+        p {
+            margin: 0 0 16px 0;
+            color: var(--muted);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: #0f141f;
+            color: var(--text);
+        }
+
+        input:focus,
+        select:focus {
+            outline: 2px solid var(--accent);
+            border-color: transparent;
+        }
+
+        button {
+            margin-top: 16px;
+            padding: 12px 16px;
+            border: none;
+            border-radius: 10px;
+            background: var(--accent);
+            color: #0b0c10;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #ffab91;
+        }
+
+        .result {
+            margin-top: 16px;
+            padding: 12px;
+            border-radius: 10px;
+            background: #121621;
+            border: 1px solid var(--border);
+        }
+
+        .result strong {
+            color: #ffd180;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 16px;
+            }
+
+            .container {
+                padding: 18px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+        <h1>Exercicio 04 - Taxas Infinity Bank</h1>
+        <p>Simulador de vendas com bandeira, juros e taxas mensais.</p>
+
+        <div class="grid">
+            <div>
+                <label for="bandeira">Bandeira</label>
+                <select id="bandeira">
+                    <option value="visa">Visa (2%)</option>
+                    <option value="master">Master (1.85%)</option>
+                    <option value="elo">Elo (3%)</option>
+                </select>
+            </div>
+            <div>
+                <label for="valor">Valor da venda (R$)</label>
+                <input id="valor" type="number" step="0.01" placeholder="0" />
+            </div>
+            <div>
+                <label for="parcelas">Numero de parcelas</label>
+                <input id="parcelas" type="number" min="1" step="1" placeholder="1" />
+            </div>
+        </div>
+
+        <button id="btn-calcular">Calcular</button>
+
+        <div id="resultado" class="result">Aguardando calculo...</div>
+    </main>
+
+    <script>
+        const selectBandeira = document.getElementById("bandeira");
+        const inputValor = document.getElementById("valor");
+        const inputParcelas = document.getElementById("parcelas");
+        const btnCalcular = document.getElementById("btn-calcular");
+        const resultado = document.getElementById("resultado");
+
+        function obterTaxaBandeira(bandeira) {
+            // Usa switch para manter a regra organizada
+            switch (bandeira) {
+                case "visa":
+                    return 0.02;
+                case "master":
+                    return 0.0185;
+                case "elo":
+                    return 0.03;
+                default:
+                    return 0;
+            }
+        }
+
+        btnCalcular.addEventListener("click", () => {
+            const valor = Number(inputValor.value);
+            const parcelas = Number(inputParcelas.value);
+            const taxaBandeira = obterTaxaBandeira(selectBandeira.value);
+
+            // Juros simples de 0.35% ao mes conforme a quantidade de parcelas
+            const juros = valor * (0.0035 * parcelas);
+            const taxa = valor * taxaBandeira;
+            const taxaMensal = 12.5 * parcelas;
+
+            const total = valor + taxa + juros + taxaMensal;
+            const valorParcela = parcelas > 0 ? total / parcelas : 0;
+
+            resultado.innerHTML = `
+        <div>Taxa da bandeira: <strong>R$ ${taxa.toFixed(2)}</strong></div>
+        <div>Juros totais: <strong>R$ ${juros.toFixed(2)}</strong></div>
+        <div>Taxa mensal: <strong>R$ ${taxaMensal.toFixed(2)}</strong></div>
+        <div>Valor de cada parcela: <strong>R$ ${valorParcela.toFixed(2)}</strong></div>
+      `;
+        });
+    </script>
+</body>
+
+</html>

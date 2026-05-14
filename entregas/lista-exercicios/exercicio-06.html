@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercicio 06 - Credito para Eventos</title>
+    <style>
+        :root {
+            --bg: #0f1115;
+            --panel: #171a21;
+            --text: #e6e6e6;
+            --muted: #a6adbb;
+            --accent: #ffd54f;
+            --border: #232734;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: radial-gradient(1100px 520px at 80% -10%, #2a2a1b, #0f1115);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 24px;
+        }
+
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
+        }
+
+        h1 {
+            margin: 0 0 8px 0;
+            color: var(--accent);
+        }
+
+        p {
+            margin: 0 0 16px 0;
+            color: var(--muted);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        select,
+        input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: #0f141f;
+            color: var(--text);
+        }
+
+        select:focus,
+        input:focus {
+            outline: 2px solid var(--accent);
+            border-color: transparent;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        button {
+            margin-top: 16px;
+            padding: 12px 16px;
+            border: none;
+            border-radius: 10px;
+            background: var(--accent);
+            color: #0b0c10;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #ffe082;
+        }
+
+        .result {
+            margin-top: 16px;
+            padding: 12px;
+            border-radius: 10px;
+            background: #121621;
+            border: 1px solid var(--border);
+        }
+
+        .result strong {
+            color: #ffe082;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 16px;
+            }
+
+            .container {
+                padding: 18px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+        <h1>Exercicio 06 - Credito para Festas e Eventos</h1>
+        <p>Selecione o pacote e a quantidade de pessoas para calcular o orcamento.</p>
+
+        <div class="grid">
+            <div>
+                <label for="pacote">Pacote</label>
+                <select id="pacote">
+                    <option value="50">Standard - R$ 50,00</option>
+                    <option value="80">Premium - R$ 80,00</option>
+                    <option value="120">Infinity Deluxe - R$ 120,00</option>
+                </select>
+            </div>
+            <div>
+                <label for="pessoas">Quantidade de pessoas</label>
+                <input id="pessoas" type="number" min="1" step="1" placeholder="1" />
+            </div>
+        </div>
+
+        <button id="btn-calcular">Calcular orcamento</button>
+
+        <div id="resultado" class="result">Aguardando calculo...</div>
+    </main>
+
+    <script>
+        const selectPacote = document.getElementById("pacote");
+        const inputPessoas = document.getElementById("pessoas");
+        const btnCalcular = document.getElementById("btn-calcular");
+        const resultado = document.getElementById("resultado");
+
+        btnCalcular.addEventListener("click", () => {
+            // Valor base depende do pacote e do total de pessoas
+            const preco = Number(selectPacote.value);
+            const pessoas = Number(inputPessoas.value);
+
+            const base = preco * pessoas;
+            const taxaServico = base * 0.1;
+            const subtotal = base + taxaServico;
+
+            let desconto = 0;
+            if (pessoas > 100) {
+                desconto = subtotal * 0.05;
+            }
+
+            const total = subtotal - desconto;
+
+            resultado.innerHTML = `
+        <div>Custo bruto: <strong>R$ ${base.toFixed(2)}</strong></div>
+        <div>Taxa de servico (10%): <strong>R$ ${taxaServico.toFixed(2)}</strong></div>
+        <div>Desconto: <strong>R$ ${desconto.toFixed(2)}</strong></div>
+        <div>Total final: <strong>R$ ${total.toFixed(2)}</strong></div>
+      `;
+        });
+    </script>
+</body>
+
+</html>

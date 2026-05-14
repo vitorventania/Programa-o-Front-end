@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercicio 07 - Validador de Seguranca</title>
+    <style>
+        :root {
+            --bg: #0f1115;
+            --panel: #171a21;
+            --text: #e6e6e6;
+            --muted: #a6adbb;
+            --accent: #90caf9;
+            --border: #232734;
+            --ok: #4caf50;
+            --err: #ef5350;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: radial-gradient(1000px 520px at 20% -10%, #1b2638, #0f1115);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 24px;
+        }
+
+        .container {
+            max-width: 820px;
+            margin: 0 auto;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
+        }
+
+        h1 {
+            margin: 0 0 8px 0;
+            color: var(--accent);
+        }
+
+        p {
+            margin: 0 0 16px 0;
+            color: var(--muted);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: #0f141f;
+            color: var(--text);
+        }
+
+        input:focus {
+            outline: 2px solid var(--accent);
+            border-color: transparent;
+        }
+
+        button {
+            margin-top: 16px;
+            padding: 12px 16px;
+            border: none;
+            border-radius: 10px;
+            background: var(--accent);
+            color: #0b0c10;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #bbdefb;
+        }
+
+        .panel {
+            margin-top: 16px;
+            padding: 12px;
+            border-radius: 10px;
+            background: #121621;
+            border: 1px solid var(--border);
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .status-ok {
+            color: var(--ok);
+            font-weight: 700;
+        }
+
+        .status-err {
+            color: var(--err);
+            font-weight: 700;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 16px;
+            }
+
+            .container {
+                padding: 18px;
+            }
+
+            .panel {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+        <h1>Exercicio 07 - Validador de Seguranca Infinity</h1>
+        <p>Analise um numero de cartao com o algoritmo de Luhn.</p>
+
+        <label for="cartao">Numero do cartao</label>
+        <input id="cartao" type="text" placeholder="0000 0000 0000 0000" />
+        <button id="btn-analisar">Analisar cartao</button>
+
+        <div id="painel" class="panel">
+            <div>Status: <span id="status">Aguardando</span></div>
+            <div>Bandeira: <span id="bandeira">-</span></div>
+            <div>Categoria: <span id="categoria">-</span></div>
+            <div>Banco emissor: <span id="banco">-</span></div>
+        </div>
+    </main>
+
+    <script>
+        const inputCartao = document.getElementById("cartao");
+        const btnAnalisar = document.getElementById("btn-analisar");
+        const statusEl = document.getElementById("status");
+        const bandeiraEl = document.getElementById("bandeira");
+        const categoriaEl = document.getElementById("categoria");
+        const bancoEl = document.getElementById("banco");
+
+        function limparNumero(valor) {
+            // Remove espacos e pontos
+            return valor.replace(/\D/g, "");
+        }
+
+        function validarLuhn(numero) {
+            // Implementacao do algoritmo de Luhn
+            let soma = 0;
+            let alternar = false;
+
+            for (let i = numero.length - 1; i >= 0; i -= 1) {
+                let digito = Number(numero[i]);
+                if (alternar) {
+                    digito *= 2;
+                    if (digito > 9) digito -= 9;
+                }
+                soma += digito;
+                alternar = !alternar;
+            }
+
+            return soma % 10 === 0;
+        }
+
+        function detectarBandeira(numero) {
+            const prefixo2 = Number(numero.slice(0, 2));
+            const prefixo4 = Number(numero.slice(0, 4));
+            const prefixo6 = Number(numero.slice(0, 6));
+
+            if (numero.startsWith("4")) return "Visa";
+            if (prefixo2 >= 51 && prefixo2 <= 55) return "Mastercard";
+            if (prefixo6 >= 222100 && prefixo6 <= 272099) return "Mastercard";
+            if (numero.startsWith("34") || numero.startsWith("37")) return "American Express";
+            if ([4011, 4312, 4389, 4514, 4576, 5041, 5066, 5090, 6277, 6362, 6363].includes(prefixo4)) return "Elo";
+            return "Desconhecida";
+        }
+
+        function categoriaSetor(numero) {
+            const primeiro = numero[0];
+            const mapa = {
+                "1": "Companhias aereas",
+                "2": "Companhias aereas",
+                "3": "Viagens e entretenimento",
+                "4": "Bancos e financeiro",
+                "5": "Bancos e financeiro",
+                "6": "Comercio e bancos",
+                "7": "Petroleo",
+                "8": "Telecomunicacoes",
+                "9": "Orgaos nacionais"
+            };
+            return mapa[primeiro] || "Nao identificado";
+        }
+
+        function identificarBanco(numero) {
+            // Exemplo simples de mapeamento por prefixo
+            const prefixo6 = numero.slice(0, 6);
+            const bancos = {
+                "411111": "Banco Exemplo Visa",
+                "550000": "Banco Exemplo Master",
+                "340000": "Banco Exemplo Amex"
+            };
+            return bancos[prefixo6] || "Nao identificado";
+        }
+
+        btnAnalisar.addEventListener("click", () => {
+            const numero = limparNumero(inputCartao.value);
+
+            if (numero.length < 13 || numero.length > 16) {
+                statusEl.textContent = "Invalido";
+                statusEl.className = "status-err";
+                bandeiraEl.textContent = "-";
+                categoriaEl.textContent = "-";
+                bancoEl.textContent = "-";
+                return;
+            }
+
+            const valido = validarLuhn(numero);
+            statusEl.textContent = valido ? "Valido" : "Invalido";
+            statusEl.className = valido ? "status-ok" : "status-err";
+            bandeiraEl.textContent = detectarBandeira(numero);
+            categoriaEl.textContent = categoriaSetor(numero);
+            bancoEl.textContent = identificarBanco(numero);
+        });
+    </script>
+</body>
+
+</html>

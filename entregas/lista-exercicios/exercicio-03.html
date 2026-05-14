@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercicio 03 - Media Escolar</title>
+    <style>
+        :root {
+            --bg: #0f1115;
+            --panel: #171a21;
+            --text: #e6e6e6;
+            --muted: #a6adbb;
+            --accent: #81c784;
+            --border: #232734;
+            --ok: #42a5f5;
+            --warn: #66bb6a;
+            --err: #ef5350;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: radial-gradient(900px 520px at 20% -10%, #1b2331, #0f1115);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 24px;
+        }
+
+        .container {
+            max-width: 740px;
+            margin: 0 auto;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
+        }
+
+        h1 {
+            margin: 0 0 8px 0;
+            color: var(--accent);
+        }
+
+        p {
+            margin: 0 0 16px 0;
+            color: var(--muted);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: #0f141f;
+            color: var(--text);
+        }
+
+        input:focus {
+            outline: 2px solid var(--accent);
+            border-color: transparent;
+        }
+
+        button {
+            margin-top: 16px;
+            padding: 12px 16px;
+            border: none;
+            border-radius: 10px;
+            background: var(--accent);
+            color: #0b0c10;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #a5d6a7;
+        }
+
+        .result {
+            margin-top: 16px;
+            padding: 12px;
+            border-radius: 10px;
+            background: #121621;
+            border: 1px solid var(--border);
+            font-weight: 600;
+        }
+
+        .ok {
+            color: var(--ok);
+        }
+
+        .warn {
+            color: var(--warn);
+        }
+
+        .err {
+            color: var(--err);
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 16px;
+            }
+
+            .container {
+                padding: 18px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+        <h1>Exercicio 03 - Media Escolar</h1>
+        <p>Informe o nome e as tres notas para calcular a media.</p>
+
+        <div class="grid">
+            <div>
+                <label for="nome">Nome do aluno</label>
+                <input id="nome" type="text" placeholder="Ex: Maria" />
+            </div>
+            <div>
+                <label for="nota1">Nota 1</label>
+                <input id="nota1" type="number" step="0.1" placeholder="0" />
+            </div>
+            <div>
+                <label for="nota2">Nota 2</label>
+                <input id="nota2" type="number" step="0.1" placeholder="0" />
+            </div>
+            <div>
+                <label for="nota3">Nota 3</label>
+                <input id="nota3" type="number" step="0.1" placeholder="0" />
+            </div>
+        </div>
+
+        <button id="btn-calcular">Calcular media</button>
+        <div id="resultado" class="result">Aguardando calculo...</div>
+    </main>
+
+    <script>
+        const inputNome = document.getElementById("nome");
+        const inputN1 = document.getElementById("nota1");
+        const inputN2 = document.getElementById("nota2");
+        const inputN3 = document.getElementById("nota3");
+        const btnCalcular = document.getElementById("btn-calcular");
+        const resultado = document.getElementById("resultado");
+
+        btnCalcular.addEventListener("click", () => {
+            // Converte valores dos inputs para numero
+            const nome = inputNome.value.trim();
+            const n1 = Number(inputN1.value);
+            const n2 = Number(inputN2.value);
+            const n3 = Number(inputN3.value);
+
+            const media = (n1 + n2 + n3) / 3;
+            const mediaTexto = media.toFixed(2);
+
+            resultado.classList.remove("ok", "warn", "err");
+
+            if (media >= 7) {
+                resultado.textContent = `${nome || "Aluno"} aprovado. Media: ${mediaTexto}.`;
+                resultado.classList.add("ok");
+            } else if (media >= 4) {
+                const falta = (10 - media).toFixed(2);
+                resultado.textContent = `${nome || "Aluno"} em exame. Media: ${mediaTexto}. Faltam ${falta} para 10.`;
+                resultado.classList.add("warn");
+            } else {
+                resultado.textContent = `${nome || "Aluno"} reprovado. Media: ${mediaTexto}.`;
+                resultado.classList.add("err");
+            }
+        });
+    </script>
+</body>
+
+</html>

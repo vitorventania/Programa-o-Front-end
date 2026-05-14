@@ -5,8 +5,226 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HUB | Programação Front-end</title>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./src/styles/styles.css">
+  <style>
+    :root {
+      --bg: #0f1115;
+      --panel: #171a21;
+      --text: #e6e6e6;
+      --muted: #a6adbb;
+      --accent: #ffb74d;
+      --border: #232734;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: radial-gradient(1000px 520px at 15% -10%, #1d2230, #0f1115);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 24px;
+    }
+
+    header {
+      max-width: 980px;
+      margin: 0 auto 24px auto;
+      padding: 24px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .header-tag {
+      color: var(--muted);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    header h1 {
+      margin: 6px 0 0 0;
+      color: var(--accent);
+      font-size: 1.7rem;
+    }
+
+    header h1 span {
+      color: var(--muted);
+    }
+
+    .header-meta {
+      text-align: right;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    main {
+      max-width: 980px;
+      margin: 0 auto;
+      display: grid;
+      gap: 20px;
+    }
+
+    .bimestre {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
+    }
+
+    .bimestre-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .bimestre-label {
+      background: #1c2435;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+    }
+
+    .bimestre-title {
+      margin: 0;
+      color: var(--accent);
+      font-size: 1.2rem;
+    }
+
+    .bimestre-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .lista-entregas {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .item-entrega {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      text-decoration: none;
+      color: var(--text);
+      background: #121621;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px 18px;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .item-entrega:hover {
+      transform: translateY(-2px);
+      border-color: #2d3547;
+      background: #141a27;
+    }
+
+    .item-entrega:focus {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .item-conteudo {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .item-icone {
+      font-size: 1.6rem;
+    }
+
+    .item-cabecalho {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .item-titulo {
+      margin: 0;
+      font-size: 1.05rem;
+    }
+
+    .item-status {
+      font-size: 0.75rem;
+      color: var(--accent);
+      border: 1px solid var(--border);
+      padding: 4px 8px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .item-desc {
+      margin: 6px 0 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .item-seta {
+      color: var(--muted);
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    footer {
+      max-width: 980px;
+      margin: 24px auto 0 auto;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    .footer-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      margin: 8px auto 0 auto;
+    }
+
+    @media (max-width: 720px) {
+      body {
+        padding: 16px;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .header-meta {
+        text-align: left;
+      }
+
+      .item-entrega {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .item-seta {
+        align-self: flex-end;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -42,11 +260,13 @@
                   <h3 class="item-titulo">HTML</h3>
                   <span class="item-status">entregue</span>
                 </div>
-                <p class="item-desc">Fundamentos de marcação: estrutura semântica, tags, atributos e criação de páginas básicas.</p>
+                <p class="item-desc">Fundamentos de marcação: estrutura semântica, tags, atributos e criação de páginas
+                  básicas.</p>
               </div>
             </div>
             <svg class="item-seta" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
             </svg>
           </a>
         </li>
@@ -60,11 +280,13 @@
                   <h3 class="item-titulo">CSS 1</h3>
                   <span class="item-status">entregue</span>
                 </div>
-                <p class="item-desc">Introdução ao CSS: seletores, cores, tipografia, modelo de caixa e estilização básica.</p>
+                <p class="item-desc">Introdução ao CSS: seletores, cores, tipografia, modelo de caixa e estilização
+                  básica.</p>
               </div>
             </div>
             <svg class="item-seta" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
             </svg>
           </a>
         </li>
@@ -82,7 +304,8 @@
               </div>
             </div>
             <svg class="item-seta" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
             </svg>
           </a>
         </li>
@@ -100,7 +323,8 @@
               </div>
             </div>
             <svg class="item-seta" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
             </svg>
           </a>
         </li>
@@ -114,11 +338,13 @@
                   <h3 class="item-titulo">Bootstrap</h3>
                   <span class="item-status">entregue</span>
                 </div>
-                <p class="item-desc">Sistema de grid do Bootstrap, utilitários e componentes para prototipação rápida.</p>
+                <p class="item-desc">Sistema de grid do Bootstrap, utilitários e componentes para prototipação rápida.
+                </p>
               </div>
             </div>
             <svg class="item-seta" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
             </svg>
           </a>
         </li>
@@ -132,11 +358,13 @@
                   <h3 class="item-titulo">JavaScript</h3>
                   <span class="item-status">entregue</span>
                 </div>
-                <p class="item-desc">Lógica de programação com JS: variáveis, funções, DOM, eventos e manipulação de dados.</p>
+                <p class="item-desc">Lógica de programação com JS: variáveis, funções, DOM, eventos e manipulação de
+                  dados.</p>
               </div>
             </div>
             <svg class="item-seta" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
             </svg>
           </a>
         </li>
@@ -150,11 +378,13 @@
                   <h3 class="item-titulo">Prova</h3>
                   <span class="item-status">entregue</span>
                 </div>
-                <p class="item-desc">Avaliação do 1º Bimestre integrando HTML, CSS e JavaScript em um projeto prático.</p>
+                <p class="item-desc">Avaliação do 1º Bimestre integrando HTML, CSS e JavaScript em um projeto prático.
+                </p>
               </div>
             </div>
             <svg class="item-seta" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
             </svg>
           </a>
         </li>
@@ -172,19 +402,24 @@
       <ol class="lista-entregas">
 
         <li>
-          <div class="item-entrega locked">
+          <a href="./entregas/lista-exercicios/app.html" class="item-entrega">
             <div class="item-conteudo">
-              <div class="item-icone">🔒</div>
+              <div class="item-icone">📝</div>
               <div class="item-info">
                 <div class="item-cabecalho">
-                  <h3 class="item-titulo">Entrega 01</h3>
-                  <span class="item-status locked-badge">em breve</span>
+                  <h3 class="item-titulo">Lista de Exercícios</h3>
+                  <span class="item-status">entregue</span>
                 </div>
-                <p class="item-desc">Esta entrega ainda não foi adicionada. Atualize o hub quando estiver disponível.</p>
+                <p class="item-desc">Lista de Exercícios com HTML, CSS e JavaScript para praticar lógica, manipulação de
+                  DOM
+                </p>
               </div>
             </div>
-            <span class="locked-text">Em breve</span>
-          </div>
+            <svg class="item-seta" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </a>
         </li>
 
       </ol>

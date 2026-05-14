@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Exercicios - Menu</title>
+    <style>
+        :root {
+            --bg: #0f1115;
+            --panel: #171a21;
+            --text: #e6e6e6;
+            --muted: #a6adbb;
+            --accent: #ffb74d;
+            --accent-2: #4dd0e1;
+            --border: #232734;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: radial-gradient(1200px 600px at 10% -10%, #1d2230, #0f1115);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 24px;
+        }
+
+        header {
+            max-width: 980px;
+            margin: 0 auto 24px auto;
+            padding: 24px;
+            background: linear-gradient(120deg, #1c2333, #151824);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+        }
+
+        header h1 {
+            margin: 0 0 8px 0;
+            font-size: 1.8rem;
+            color: var(--accent);
+        }
+
+        header p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        main {
+            max-width: 980px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .card {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            min-height: 140px;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            border-color: #2d3547;
+        }
+
+        .card h2 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .card a {
+            margin-top: auto;
+            text-decoration: none;
+            color: #0b0c10;
+            background: var(--accent);
+            padding: 10px 12px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            border: 1px solid transparent;
+        }
+
+        .card a:hover {
+            background: #ffcc80;
+            border-color: #ffd699;
+        }
+
+        .card a:focus {
+            outline: 2px solid var(--accent-2);
+            outline-offset: 2px;
+        }
+
+        footer {
+            max-width: 980px;
+            margin: 28px auto 0 auto;
+            color: var(--muted);
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
+        @media (max-width: 720px) {
+            main {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Laboratorio Front-end - Lista de Exercicios</h1>
+        <p>Menu com links para cada atividade. Todos os exercicios usam HTML, CSS e JS internos.</p>
+    </header>
+
+    <main>
+        <div class="card">
+            <h2>Exercicio 01 - Validador de CPF</h2>
+            <p>Validacao de CPF com calculo dos digitos verificadores.</p>
+            <a href="exercicio-01.html">Abrir</a>
+        </div>
+
+        <div class="card">
+            <h2>Exercicio 02 - Conversor Dinamico</h2>
+            <p>Conversao em tempo real entre Celsius e Fahrenheit.</p>
+            <a href="exercicio-02.html">Abrir</a>
+        </div>
+
+        <div class="card">
+            <h2>Exercicio 03 - Media Escolar</h2>
+            <p>Calculo de media e status do aluno.</p>
+            <a href="exercicio-03.html">Abrir</a>
+        </div>
+
+        <div class="card">
+            <h2>Exercicio 04 - Taxas Infinity Bank</h2>
+            <p>Simulador de vendas com taxas e parcelas.</p>
+            <a href="exercicio-04.html">Abrir</a>
+        </div>
+
+        <div class="card">
+            <h2>Exercicio 05 - Convidados VIP</h2>
+            <p>Lista dinamica com concluir, editar e excluir.</p>
+            <a href="exercicio-05.html">Abrir</a>
+        </div>
+
+        <div class="card">
+            <h2>Exercicio 06 - Credito para Eventos</h2>
+            <p>Calculo de orcamento com taxas e descontos.</p>
+            <a href="exercicio-06.html">Abrir</a>
+        </div>
+
+        <div class="card">
+            <h2>Exercicio 07 - Validador de Seguranca</h2>
+            <p>Algoritmo de Luhn e informacoes basicas do cartao.</p>
+            <a href="exercicio-07.html">Abrir</a>
+        </div>
+    </main>
+
+    <footer>
+        Desenvolvido para a lista semanal - dark mode fixo.
+    </footer>
+</body>
+
+</html>
